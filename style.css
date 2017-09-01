@@ -1,0 +1,106 @@
+/*
+.links { 
+     height: 50px;
+     display: inline;
+     color: black;
+     margin: 10px;
+}
+*/
+a:hover {
+    text-decoration: underline;
+}
+
+a::after {
+ 
+}
+
+
+
+.jumbotron {
+    background-color: #080b14;
+}
+
+/*
+.header {
+    font-family: Verdana;
+    font-size: 40px;
+    font-weight: bold;
+    color: #080b14;
+    height: 110px;
+    text-align: left;
+    line-height: 110px;
+    display: inline;
+    margin: 10px;
+}
+*/
+header {
+  /* position: fixed;
+  /* margin-top: -100px; /* Negative half of height. */
+  /*  margin-bottom: -100px; /* Negative half of height.*/
+  /* margin-left: 5%; /* Negative half of width. */
+    width: 100%;
+  /* top: 0;
+   z-index: 2; */
+    
+}
+
+/*
+
+h1 {
+    color:
+    font-family:
+}
+*/
+.middle {
+    background-color: #000000;
+    height: 600px;
+    
+
+}
+
+.content {
+  /*  margin-top: 260px; */
+}
+
+
+
+#podheader {
+    font-family: Verdana;
+    color: Black;
+    height: 30px;
+    text-align: center;
+    margin: 12px;
+    
+}
+
+body {
+     background-color: #000;
+     margin: 0px;
+     height: 710px;
+}
+
+h7 {
+     font-family: Verdana;
+     text-align: center;
+     line-height:50px;
+}
+
+/*
+
+div{
+     font-family: Verdana;
+}
+
+p {
+    white-space:pre;
+    width:200px;
+    font-family: Verdana;
+    height: 10px;
+    display:inline
+}
+
+#launches {
+     background-color: white;
+}
+*/
+

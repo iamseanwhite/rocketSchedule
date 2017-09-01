@@ -1,0 +1,133 @@
+<html>
+    <head>
+      <link rel="stylesheet" type="text/css" href="style.css">
+        <!-- Latest compiled and minified CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" 
+        integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        
+        <!-- Latest compiled and minified JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" 
+        integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+        
+    </head>
+    
+    <body>
+      
+      
+    
+        <header>
+          <center>
+             <!-- <h2 class="header">Earth Launch</h2>
+              <a class="links" style="text-decoration:none" href="https://www.w3schools.com">Link</a>
+              <a class="links" style="text-decoration:none" href="https://www.w3schools.com">Another Link</a>
+              <a class="links" style="text-decoration:none" href="https://www.w3schools.com">A Third Link</a>
+              <input class="search" type = "text" placeholder = "Search">
+              -->
+        
+            <div class="jumbotron" style = "box-shadow: 10px 7px 15px #cccccc">
+              <h1 class="display-3" style = "margin-left: 15%">Rocket Splode</h1>
+              <p class="lead"></p>
+              <hr class="my-2">
+              <p  style = "margin-left: 15%">Take a nap, but then fire the misiles!</p>
+              <p class="lead"></p>
+            </div>
+            
+         </center>    
+        </header>
+        
+        
+        <center>
+         
+      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%; margin-top: -318px; z-index:3; box-shadow: 0px 0px 20px #000000;">
+        
+        <h3 class="w3-bar-item">Filter</h3>
+        <label>Agency</label>
+        <select id = "agency" onchange = "setAgency()">
+          <option value="all">All</option>
+          <option value="spx">SpaceX</option>
+          <option value="nasa">NASA</option>
+          <option value="AEM">Mexican Space Agency</option>
+          <option value="audi">Other</option>
+        </select>
+        
+        <br><br>
+        
+        <label for="startDate">Start Date</label>
+        <select id = "startDate" onchange = "filterStartDate">
+          <option value="volvo">All</option>
+          <option value="saab">SpaceX</option>
+          <option value="mercedes">NASA</option>
+          <option value="audi">Other</option>
+        
+        </select>
+        <br><br>
+        
+        <label for="endDate">End Date</label>
+        <select id = "endDate" onchange = "filtereEndDate">
+          <option value="volvo">All</option>
+          <option value="saab">SpaceX</option>
+          <option value="mercedes">NASA</option>
+          <option value="audi">Other</option>
+        </select>
+        
+      </div>
+    
+      <div class="content" style="margin-left:15%;">
+         
+          <h5>Recent Launches</h5> 
+          <div class="card card-inverse card-primary mb-3 text-center" id = "recent" style="width: 23rem; box-shadow: 2px 2px 7px #333; border-radius: 10px;" >
+            <div class="card-block"></div> 
+        </div>
+        
+        
+        <div id = "launches">
+            <h5 id = "launchHeader" style = "margin-top: 40px">Upcoming Launches</h5>
+        
+        
+        
+    
+          
+              <div class="card-deck" id="top"></div>
+              <br>
+              <div class="card-deck"  id="middle1"></div>
+              <br>
+              <div class="card-deck"  id="middle2"></div>
+              <br>
+              <div class="card-deck" id="bottom"></div>
+    
+        
+        
+       </div>
+       
+       
+      <h4 id = "podheader" style = "margin-top: 100px;">NASA Picture Of The Day</h4>
+      <div class="middle">
+        <div id = "nasapod">
+        <!--  <img src="" id="podimg" alt="Mountain View" align="middle" style="height:600px;" > -->
+        
+      </div>
+      
+        <h5 id = "podtitle" style = "text-align: center; margin: 10px;">testing</h5>
+      
+      <div id="description" style = "margin-top: 30px; margin-left: 380px; margin-right: 380px; margin-bottom: 40px;"></div>
+        <!--     
+            <p id="launchName">Name: </p>
+            <p id="launchDate">Date: </p>
+            <p id="launchLocation">Location: </p>
+        
+        -->
+
+<?php
+// A simple web site in Cloud9 that runs through Apache
+// Press the 'Run' button on the top to start the web server,
+// then click the URL that is emitted to the Output tab of the console
+
+//echo 'Hello world from Cloud9!';
+
+?>
+  </center>
+    </div>
+    </body>
+    <script src="script.js"></script>
+</html>
