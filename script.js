@@ -30,6 +30,7 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
             link.style.marginLeft = "5px";
             link.style.marginRight = "5px";
             link.style.borderRadius = "7px";
+            if (urlIndex <= 1) 
             document.getElementById(column).appendChild(link);
             //document.getElementById(column).appendChild(br);
             //document.getElementById(column).appendChild(br);
@@ -51,7 +52,9 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     //build card parameters
     cardDiv.className = "card card-inverse card-primary mb-3 text-center";
     cardDiv.id = "cardID" + launchIndex;
+    if (isRecent) cardDiv.id += "R";
     cardDiv.style.width = "22rem";
+    if (!isRecent)
     cardDiv.style.backgroundColor = "#333";
     cardDiv.style.borderRadius = "10px";
     cardDiv.style.boxShadow = "2px 2px 7px #333";
@@ -91,15 +94,34 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     
     
     if (isRecent === true) {
-        //document.getElementById("recent").appendChild(cardDiv);
-        //document.getElementById("recent").appendChild(cardBlockDiv);
-        //document.getElementById("left").appendChild(launchNumber);
-        document.getElementById("recent").appendChild(launchName);
-        document.getElementById("recent").appendChild(launchDate);
-        document.getElementById("recent").appendChild(launchLocation);
-        fillDetails(object, launchIndex, launchName.id, launchLocation.id, launchDate.id);
-        addURLS("recent");
-        document.getElementById("recent").appendChild(br);
+        if (launchIndex <= 3) {
+    
+            document.getElementById("recentTop").appendChild(cardDiv);
+            
+        }
+        
+
+        
+        else if (launchIndex >= 4 && launchIndex <= 7){
+            
+            document.getElementById("recentMiddle1").appendChild(cardDiv);
+     
+        }
+        
+        else if (launchIndex >= 8 && launchIndex <= 11){
+            
+            document.getElementById("recentMiddle2").appendChild(cardDiv);
+     
+        }
+        
+        
+        else {
+            
+            document.getElementById("recentBottom").appendChild(cardDiv);
+    
+        }
+    
+    
         
     }
     
@@ -132,6 +154,9 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
         }
     
     
+        
+    }
+    
         document.getElementById(cardDiv.id).appendChild(cardBlockDiv);
         //document.getElementById("left").appendChild(launchNumber);
         document.getElementById(cardDiv.id).appendChild(launchName);
@@ -145,7 +170,6 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
         
         
         document.getElementById(cardDiv.id).appendChild(br);
-    }
     
 }
 
@@ -199,7 +223,7 @@ function refreshLaunchDetails(object, launchEntry, launchIndex){
 */
 function searchRecentLaunches() {
     //Recent Launches
-    var startDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()-5);
+    var startDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()-20);
     var enddate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate());
     
     console.log(startDate);
@@ -313,6 +337,10 @@ else {
     document.getElementById("nasapod").appendChild(podVideo);
     //document.getElementById("podvideo").appendChild(podSource);
 }
+
+$( function() {
+    $( "#datepicker" ).datepicker();
+  } );
 
 
 
