@@ -1,6 +1,11 @@
 <html>
     <head>
       <link rel="stylesheet" type="text/css" href="style.css">
+        <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <link rel="stylesheet" href="/resources/demos/style.css">
+        <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+        
         <!-- Latest compiled and minified CSS -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" 
         integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -39,10 +44,48 @@
         
         <center>
          
-      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%; margin-top: -318px; z-index:3; box-shadow: 0px 0px 20px #000000;">
+      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%; margin-top: -323px; position: fixed; z-index:3; box-shadow: 0px 0px 20px #000000;">
         
         <h3 class="w3-bar-item">Filter</h3>
+        <label>Recent</label>
+        <br><br>
         <label>Agency</label>
+        <br>
+        <select id = "recentAgency" onchange = "setAgency()">
+          <option value="all">All</option>
+          <option value="spx">SpaceX</option>
+          <option value="nasa">NASA</option>
+          <option value="AEM">Mexican Space Agency</option>
+          <option value="audi">Other</option>
+        </select>
+        
+        <br><br>
+        
+        <label for="recentStartDate">Start Date</label>
+        <br>
+        <select id = "startDate" onchange = "filterStartDate">
+          <option value="volvo">All</option>
+          <option value="saab">SpaceX</option>
+          <option value="mercedes">NASA</option>
+          <option value="audi">Other</option>
+        
+        </select>
+        <br><br>
+        
+        <label for="recentEndDate">End Date</label>
+        <br>
+        <select id = "endDate" onchange = "filtereEndDate">
+          <option value="volvo">All</option>
+          <option value="saab">SpaceX</option>
+          <option value="mercedes">NASA</option>
+          <option value="audi">Other</option>
+        </select>
+        
+        <br><br><br>
+        <label>Upcoming</label>
+        <br><br>
+        <label>Agency</label>
+        <br>
         <select id = "agency" onchange = "setAgency()">
           <option value="all">All</option>
           <option value="spx">SpaceX</option>
@@ -54,31 +97,48 @@
         <br><br>
         
         <label for="startDate">Start Date</label>
-        <select id = "startDate" onchange = "filterStartDate">
-          <option value="volvo">All</option>
-          <option value="saab">SpaceX</option>
-          <option value="mercedes">NASA</option>
-          <option value="audi">Other</option>
-        
-        </select>
+        <br>
+        <input type="text" id="startdatepicker" onchange = "filterStartDate">
         <br><br>
         
+        <script>
+          $( function() {
+            $( "#startdatepicker" ).datepicker();
+          } );
+        </script>
+        
         <label for="endDate">End Date</label>
-        <select id = "endDate" onchange = "filtereEndDate">
-          <option value="volvo">All</option>
-          <option value="saab">SpaceX</option>
-          <option value="mercedes">NASA</option>
-          <option value="audi">Other</option>
-        </select>
+        <br>
+        <input type="text" id="enddatepicker" "filtereEndDate">
+        
+        <script>
+          $( function() {
+            $( "#enddatepicker" ).datepicker();
+          } );
+        </script>
         
       </div>
     
       <div class="content" style="margin-left:15%;">
          
-          <h5>Recent Launches</h5> 
-          <div class="card card-inverse card-primary mb-3 text-center" id = "recent" style="width: 23rem; box-shadow: 2px 2px 7px #333; border-radius: 10px;" >
-            <div class="card-block"></div> 
-        </div>
+          <div id = "recentLaunches">
+            <h5 id = "recentlaunchHeader" style = "margin-top: 40px">Recent Launches</h5>
+        
+        
+        
+    
+          
+              <div class="card-deck" id="recentTop"></div>
+              <br>
+              <div class="card-deck"  id="recentMiddle1"></div>
+              <br>
+              <div class="card-deck"  id="recentMiddle2"></div>
+              <br>
+              <div class="card-deck" id="recentBottom"></div>
+    
+        
+        
+       </div>
         
         
         <div id = "launches">
