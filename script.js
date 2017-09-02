@@ -1,3 +1,5 @@
+
+
 //XMLHTTPRequest 
 function httpRequest(url) {
     var xhr = new XMLHttpRequest();
@@ -19,6 +21,9 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
             //document.getElementById(column).appendChild(launchInformation);
                 
             var link = document.createElement("a");
+            if (urlIndex == 0)
+            link.textContent += "Where to Watch";
+            else 
             link.textContent += "Where to Watch";
             link.href = urlEntry;
             link.className = "btn btn-secondary";
@@ -27,10 +32,10 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
             }
             link.style.marginTop = "15px";
             link.style.marginBottom = "22px";
-            link.style.marginLeft = "5px";
+            link.style.marginLeft = "10px";
             link.style.marginRight = "5px";
             link.style.borderRadius = "7px";
-            if (urlIndex <= 1) 
+            if (urlIndex <= 0) 
             document.getElementById(column).appendChild(link);
             //document.getElementById(column).appendChild(br);
             //document.getElementById(column).appendChild(br);
@@ -63,14 +68,17 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     cardFooter.className = "card-footer";
     cardFooter.id = "footerID" + launchIndex;
     launchName.className = "card-title";
+    launchName.style.marginLeft = "10px";
     launchName.id = "launchName" + launchIndex;
     if (isRecent) launchName.id += "R";
     console.log("launchName.id is: " + launchName.id);
     launchName.style.fontSize = "22px";
     launchLocation.className = "card-subtitle mb-2 text-muted";
+    launchLocation.style.marginLeft = "10px";
     launchLocation.id = "launchLocation" + launchIndex;
     if (isRecent) launchLocation.id += "R";
     launchDate.className = "card-text";
+    launchDate.style.marginLeft = "10px";
     launchDate.id = "launchDate" + launchIndex;
     if (isRecent) launchDate.id += "R";
     //var launchNumber = document.createElement("div");
@@ -157,7 +165,7 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
         
     }
     
-        document.getElementById(cardDiv.id).appendChild(cardBlockDiv);
+        //document.getElementById(cardDiv.id).appendChild(cardBlockDiv);
         //document.getElementById("left").appendChild(launchNumber);
         document.getElementById(cardDiv.id).appendChild(launchName);
         document.getElementById(cardDiv.id).appendChild(launchDate);
@@ -394,6 +402,8 @@ $( function() {
 $( function() {
     $( "#recentenddate" ).datepicker({ dateFormat: 'yy-m-d' });
 });
+
+
 
 
 

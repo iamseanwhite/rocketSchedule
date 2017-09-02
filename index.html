@@ -29,14 +29,8 @@
               <a class="links" style="text-decoration:none" href="https://www.w3schools.com">A Third Link</a>
               <input class="search" type = "text" placeholder = "Search">
               -->
-        
-            <div class="jumbotron" style = "box-shadow: 10px 7px 15px #cccccc">
-              <h1 class="display-3" style = "margin-left: 15%">Rocket Splode</h1>
-              <p class="lead"></p>
-              <hr class="my-2">
-              <p  style = "margin-left: 15%">Take a nap, but then fire the misiles!</p>
-              <p class="lead"></p>
-            </div>
+
+ 
             
          </center>    
         </header>
@@ -44,10 +38,11 @@
         
         <center>
          
-      <div class="w3-sidebar w3-light-grey w3-bar-block" style="width:15%; margin-top: -323px; position: fixed; z-index:3; box-shadow: 0px 0px 20px #000000;">
+      <div class="w3-sidebar w3-light-grey  w3-collapse w3-card-2" style="width:15%; top: 0px; position: absolute; z-index:3; box-shadow: 0px 0px 15px #000000;">
         
-        <h3 class="w3-bar-item">Filter</h3>
-        <label>Recent</label>
+        <h3 class="w3-bar-item">Rocket Splode</h3>
+        
+        <h4 style = "margin-left: -180px; margin-top: 25px; margin-bottom: -15px;">Recent</h4>
         <br><br>
         <label>Number</label>
         <br>
@@ -93,7 +88,7 @@
         <input type="text" id="recentenddate" onchange = "setRecentParameters()">
         
         <br><br><br>
-        <label>Upcoming</label>
+        <h4 style = "margin-left: -150px; margin-top: 25px; margin-bottom: -10px;">Upcoming</h4>
         
         <br><br>
         <label>Number</label>
@@ -141,23 +136,23 @@
         
         
       </div>
-    
+    </center>
       <div class="content" style="margin-left:15%;">
          
           <div id = "recentLaunches">
-            <h5 id = "recentlaunchHeader" style = "margin-top: 40px">Recent Launches</h5>
+            <h2 id = "recentlaunchHeader" style = "margin-top: 40px; margin-bottom: 40px; margin-left: 30px ">Recent Launches</h2>
         
         
         
     
           
-              <div class="card-deck" id="recentTop"></div>
+              <div class="card-deck" id="recentTop" style = "margin-left: 10px"></div>
               <br>
-              <div class="card-deck"  id="recentMiddle1"></div>
+              <div class="card-deck"  id="recentMiddle1" style = "margin-left: 10px"></div>
               <br>
-              <div class="card-deck"  id="recentMiddle2"></div>
+              <div class="card-deck"  id="recentMiddle2" style = "margin-left: 10px"></div>
               <br>
-              <div class="card-deck" id="recentBottom"></div>
+              <div class="card-deck" id="recentBottom" style = "margin-left: 10px"></div>
     
         
         
@@ -165,24 +160,25 @@
         
         
         <div id = "launches">
-            <h5 id = "launchHeader" style = "margin-top: 40px">Upcoming Launches</h5>
+            <h2 id = "launchHeader" style = "margin-top: 40px; margin-bottom: 40px; margin-left: 30px">Upcoming Launches</h2>
         
         
         
     
           
-              <div class="card-deck" id="top"></div>
+              <div class="card-deck" id="top" style = "margin-left: 10px"></div>
               <br>
-              <div class="card-deck"  id="middle1"></div>
+              <div class="card-deck"  id="middle1" style = "margin-left: 10px"></div>
               <br>
-              <div class="card-deck"  id="middle2"></div>
+              <div class="card-deck"  id="middle2" style = "margin-left: 10px"></div>
               <br>
-              <div class="card-deck" id="bottom"></div>
+              <div class="card-deck" id="bottom" style = "margin-left: 10px"></div>
     
         
         
        </div>
        
+       <center>
        
       <h4 id = "podheader" style = "margin-top: 100px;">NASA Picture Of The Day</h4>
       <div class="middle">
