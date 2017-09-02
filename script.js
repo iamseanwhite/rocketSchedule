@@ -65,7 +65,7 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     launchName.className = "card-title";
     launchName.id = "launchName" + launchIndex;
     if (isRecent) launchName.id += "R";
-    //console.log("launchName.id is: " + launchName.id);
+    console.log("launchName.id is: " + launchName.id);
     launchName.style.fontSize = "22px";
     launchLocation.className = "card-subtitle mb-2 text-muted";
     launchLocation.id = "launchLocation" + launchIndex;
@@ -287,12 +287,18 @@ function searchUpcomingLaunches() {
 function setUpcomingParameters() {
    
     agencySelected = document.getElementById("agency").value;
-    startDateSelected = document.getElementById("recentstartdatepicker").value;
+    startDateSelected = document.getElementById("startdate").value;
+    endDateSelected = document.getElementById("enddate").value;
     numberSelected = document.getElementById("number").value;
+    
+    console.log(startDateSelected);
+    console.log(endDateSelected);
     
     if (startDateSelected === "") startDateSelected = todaysDate;
     
     var updatedUpcomingLaunchURL = "https://launchlibrary.net/1.2/launch?startdate=" + startDateSelected + "&mode=verbose&limit=" + numberSelected;
+    
+    if (endDateSelected !== "") updatedUpcomingLaunchURL += "&enddate=" + endDateSelected;
         
     if (agencySelected != "all") {
         
@@ -321,6 +327,14 @@ function setUpcomingParameters() {
 }
 
 
+$( function() {
+    $( "#startdate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+});
+
+
+$( function() {
+    $( "#enddate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+});
 
 
 //"main"=================================================================================================================================
@@ -331,6 +345,7 @@ var todaysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate
 var upcomingLaunchURL = "https://launchlibrary.net/1.2/launch?startdate=" + todaysDate + "&mode=verbose&limit=16";
 var agencySelected;
 var startDateSelected;
+var endDateSelected;
 var numberSelected;
 searchRecentLaunches();
 searchUpcomingLaunches();
@@ -389,13 +404,6 @@ else {
 
 
 
-$("#startdate").datepicker({
-  onSelect: setUpcomingParameters()
-});
-
-$("#enddate").datepicker({
-  onSelect: setUpcomingParameters()
-});
 
 
 
