@@ -49,9 +49,30 @@
         <h3 class="w3-bar-item">Filter</h3>
         <label>Recent</label>
         <br><br>
+        <label>Number</label>
+        <br>
+        <select id = "recentnumber" onchange = "setRecentParameters()">
+          <option value= 1>1</option>
+          <option value= 2>2</option>
+          <option value= 3>3</option>
+          <option value= 4>4</option>
+          <option value= 5>5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16" selected="selected">16</option>
+        </select>
+        <br><br>
         <label>Agency</label>
         <br>
-        <select id = "recentAgency" onchange = "setUpcomingParameters()">
+        <select id = "recentagency" onchange = "setRecentParameters()">
           <option value="all">All</option>
           <option value="spx">SpaceX</option>
           <option value="nasa">NASA</option>
@@ -61,22 +82,15 @@
         
         <br><br>
         
-        <label for="recentStartDate">Start Date</label>
+        <label for="startDate">Start Date</label>
         <br>
-        <input type="text" id="recentstartdatepicker" onchange = "filterStartDate">
+        <input type="text" id="recentstartdate" onchange = "setRecentParameters()">
         <br><br>
         
-
-        <br><br>
         
-        <label for="recentEndDate">End Date</label>
+        <label for="endDate">End Date</label>
         <br>
-        <select id = "endDate" onchange = "filtereEndDate">
-          <option value="volvo">All</option>
-          <option value="saab">SpaceX</option>
-          <option value="mercedes">NASA</option>
-          <option value="audi">Other</option>
-        </select>
+        <input type="text" id="recentenddate" onchange = "setRecentParameters()">
         
         <br><br><br>
         <label>Upcoming</label>

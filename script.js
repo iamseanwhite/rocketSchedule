@@ -250,11 +250,13 @@ function refreshLaunchDetails(object, launchEntry, launchIndex){
 
 function searchRecentLaunches() {
     //Recent Launches
-    var startDate = today.getFullYear()+'-'+(today.getMonth())+'-'+(today.getDate()-20);
-    var enddate = today.getFullYear()+'-'+(today.getMonth())+'-'+(today.getDate());
+    var enddate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate());
     
     console.log(startDate);
     console.log(enddate);
+    
+    if (today.getMonth() === 0) var startDate = (today.getFullYear()-1)+'-'+(12)+'-'+(today.getDate());
+    else var startDate = today.getFullYear()+'-'+(today.getMonth())+'-'+(today.getDate());
     
     var launchLibraryURL2 = "https://launchlibrary.net/1.2/launch?startdate=" + startDate + "&enddate=" + enddate + "&mode=verbose";
     var launchLibraryResponseObject2 = httpRequest(launchLibraryURL2);
@@ -327,14 +329,72 @@ function setUpcomingParameters() {
 }
 
 
+
+function setRecentParameters() {
+    
+    recentAgencySelected = document.getElementById("recentagency").value;
+    recentStartDateSelected = document.getElementById("recentstartdate").value;
+    recentEndDateSelected = document.getElementById("recentenddate").value;
+    recentNumberSelected = document.getElementById("recentnumber").value;
+    
+    //console.log(startDateSelected);
+    //console.log(endDateSelected);
+    
+    if (today.getMonth() === 0) var startDate = (today.getFullYear()-1)+'-'+(12)+'-'+(today.getDate());
+    else var startDate = today.getFullYear()+'-'+(today.getMonth())+'-'+(today.getDate());
+    
+    if (recentStartDateSelected === "") recentStartDateSelected = startDate;
+    if (recentEndDateSelected === "") recentEndDateSelected = todaysDate;
+    
+    var updatedRecentLaunchURL = "https://launchlibrary.net/1.2/launch?startdate=" + recentStartDateSelected + "&enddate=" + recentEndDateSelected  + "&mode=verbose&limit=" + recentNumberSelected;
+    
+    
+    if (recentAgencySelected != "all") {
+        
+        updatedRecentLaunchURL = updatedRecentLaunchURL + "&agency=" + recentAgencySelected;
+        
+        var launchLibraryResponseObject = httpRequest(updatedRecentLaunchURL);
+    
+    }
+    
+    else {
+        
+        var launchLibraryResponseObject = httpRequest(updatedRecentLaunchURL);
+        
+    }
+    
+    //numberSelected++;
+    for (var i = 0; i < 16; i++) {
+        
+        $( "#cardID" + i + "R").remove();
+           
+    }
+    
+    launchLibraryResponseObject.launches.forEach(function(launchEntry, launchIndex){
+        buildAndPlaceCards(launchLibraryResponseObject, true, launchEntry, launchIndex);
+    });
+}
+
+
 $( function() {
-    $( "#startdate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $( "#startdate" ).datepicker({ dateFormat: 'yy-m-d' });
 });
 
 
 $( function() {
-    $( "#enddate" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $( "#enddate" ).datepicker({ dateFormat: 'yy-m-d' });
 });
+
+
+$( function() {
+    $( "#recentstartdate" ).datepicker({ dateFormat: 'yy-m-d' });
+});
+
+
+$( function() {
+    $( "#recentenddate" ).datepicker({ dateFormat: 'yy-m-d' });
+});
+
 
 
 //"main"=================================================================================================================================
@@ -343,10 +403,17 @@ var today = new Date();
 var todaysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate());
 
 var upcomingLaunchURL = "https://launchlibrary.net/1.2/launch?startdate=" + todaysDate + "&mode=verbose&limit=16";
+
 var agencySelected;
 var startDateSelected;
 var endDateSelected;
 var numberSelected;
+
+var recentAgencySelected;
+var recentStartDateSelected;
+var recentEndDateSelected;
+var recentNumberSelected;
+
 searchRecentLaunches();
 searchUpcomingLaunches();
 
