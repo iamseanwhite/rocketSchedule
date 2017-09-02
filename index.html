@@ -51,7 +51,7 @@
         <br><br>
         <label>Agency</label>
         <br>
-        <select id = "recentAgency" onchange = "setAgency()">
+        <select id = "recentAgency" onchange = "setUpcomingParameters()">
           <option value="all">All</option>
           <option value="spx">SpaceX</option>
           <option value="nasa">NASA</option>
@@ -63,13 +63,10 @@
         
         <label for="recentStartDate">Start Date</label>
         <br>
-        <select id = "startDate" onchange = "filterStartDate">
-          <option value="volvo">All</option>
-          <option value="saab">SpaceX</option>
-          <option value="mercedes">NASA</option>
-          <option value="audi">Other</option>
+        <input type="text" id="recentstartdatepicker" onchange = "filterStartDate">
+        <br><br>
         
-        </select>
+
         <br><br>
         
         <label for="recentEndDate">End Date</label>
@@ -83,10 +80,32 @@
         
         <br><br><br>
         <label>Upcoming</label>
+        
+        <br><br>
+        <label>Number</label>
+        <br>
+        <select id = "number" onchange = "setUpcomingParameters()">
+          <option value= 1>1</option>
+          <option value= 2>2</option>
+          <option value= 3>3</option>
+          <option value= 4>4</option>
+          <option value= 5>5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16" selected="selected">16</option>
+        </select>
         <br><br>
         <label>Agency</label>
         <br>
-        <select id = "agency" onchange = "setAgency()">
+        <select id = "agency" onchange = "setUpcomingParameters()">
           <option value="all">All</option>
           <option value="spx">SpaceX</option>
           <option value="nasa">NASA</option>
@@ -98,24 +117,14 @@
         
         <label for="startDate">Start Date</label>
         <br>
-        <input type="text" id="startdatepicker" onchange = "filterStartDate">
+        <input type="text" id="startdate" onchange = "filterStartDate">
         <br><br>
         
-        <script>
-          $( function() {
-            $( "#startdatepicker" ).datepicker();
-          } );
-        </script>
         
         <label for="endDate">End Date</label>
         <br>
-        <input type="text" id="enddatepicker" "filtereEndDate">
+        <input type="text" id="enddate" "filtereEndDate">
         
-        <script>
-          $( function() {
-            $( "#enddatepicker" ).datepicker();
-          } );
-        </script>
         
       </div>
     

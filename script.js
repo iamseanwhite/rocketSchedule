@@ -65,7 +65,7 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     launchName.className = "card-title";
     launchName.id = "launchName" + launchIndex;
     if (isRecent) launchName.id += "R";
-    console.log("launchName.id is: " + launchName.id);
+    //console.log("launchName.id is: " + launchName.id);
     launchName.style.fontSize = "22px";
     launchLocation.className = "card-subtitle mb-2 text-muted";
     launchLocation.id = "launchLocation" + launchIndex;
@@ -173,6 +173,8 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     
 }
 
+
+
 function fillDetails(object, launchIndex, launchNameId, launchLocation, launchDate){
     //var launchName = document.createElement("div");
    // launchName.textContent = "Name: ";
@@ -181,14 +183,16 @@ function fillDetails(object, launchIndex, launchNameId, launchLocation, launchDa
     
    // var launchDate = document.createElement("div");
     //launchDate.textContent = "Date: ";
-    console.log(launchDate);
+    //console.log(launchDate);
     document.getElementById(launchDate).textContent = object.launches[launchIndex].net;
     
     //var launchLocation = document.createElement("div");
    // launchLocation.textContent = "Location: ";
-   console.log(launchLocation);
+  // console.log(launchLocation);
     document.getElementById(launchLocation).textContent = object.launches[launchIndex].location.name;
 }
+
+
 
 function fillFilterDetails(object, launchIndex){
     //var launchName = document.createElement("div");
@@ -207,6 +211,27 @@ function fillFilterDetails(object, launchIndex){
     document.getElementById("launchLocation" + launchIndex).textContent = object.launches[launchIndex].location.name;
 }
 
+
+
+function fillRecentFilterDetails(object, launchIndex){
+    //var launchName = document.createElement("div");
+   // launchName.textContent = "Name: ";
+
+    document.getElementById("launchName" + launchIndex + "R").textContent = object.launches[launchIndex].name;
+    
+   // var launchDate = document.createElement("div");
+    //launchDate.textContent = "Date: ";
+
+    document.getElementById("launchDate" + launchIndex + "R").textContent = object.launches[launchIndex].net;
+    
+    //var launchLocation = document.createElement("div");
+   // launchLocation.textContent = "Location: ";
+
+    document.getElementById("launchLocation" + launchIndex + "R").textContent = object.launches[launchIndex].location.name;
+}
+
+
+
 /*
 function refreshLaunchDetails(object, launchEntry, launchIndex){
     
@@ -221,18 +246,20 @@ function refreshLaunchDetails(object, launchEntry, launchIndex){
     launchLocation.textContent += object.launches[launchIndex].location.name;
 }
 */
+
+
 function searchRecentLaunches() {
     //Recent Launches
-    var startDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate()-20);
-    var enddate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate());
+    var startDate = today.getFullYear()+'-'+(today.getMonth())+'-'+(today.getDate()-20);
+    var enddate = today.getFullYear()+'-'+(today.getMonth())+'-'+(today.getDate());
     
     console.log(startDate);
     console.log(enddate);
     
     var launchLibraryURL2 = "https://launchlibrary.net/1.2/launch?startdate=" + startDate + "&enddate=" + enddate + "&mode=verbose";
     var launchLibraryResponseObject2 = httpRequest(launchLibraryURL2);
-    console.log("recent launches:");
-    console.log(launchLibraryResponseObject2);
+    //console.log("recent launches:");
+    //console.log(launchLibraryResponseObject2);
     
     launchLibraryResponseObject2.launches.forEach(function(launchEntry, launchIndex){
         buildAndPlaceCards(launchLibraryResponseObject2, true, launchEntry, launchIndex);
@@ -240,12 +267,14 @@ function searchRecentLaunches() {
     
 }
 
+
+
 function searchUpcomingLaunches() {
 
     //Upcoming Launches
     
     
-    console.log(launchLibraryResponseObject);
+    //console.log(launchLibraryResponseObject);
     var launchLibraryResponseObject = httpRequest(upcomingLaunchURL);
     
     launchLibraryResponseObject.launches.forEach(function(launchEntry, launchIndex){
@@ -253,36 +282,56 @@ function searchUpcomingLaunches() {
     });
 }
 
-function setAgency() {
+
+
+function setUpcomingParameters() {
    
     agencySelected = document.getElementById("agency").value;
+    startDateSelected = document.getElementById("recentstartdatepicker").value;
+    numberSelected = document.getElementById("number").value;
+    
+    if (startDateSelected === "") startDateSelected = todaysDate;
+    
+    var updatedUpcomingLaunchURL = "https://launchlibrary.net/1.2/launch?startdate=" + startDateSelected + "&mode=verbose&limit=" + numberSelected;
         
     if (agencySelected != "all") {
         
-        var upcomingAgencyLaunchURL = upcomingLaunchURL + "&agency=" + agencySelected;
+        updatedUpcomingLaunchURL = updatedUpcomingLaunchURL + "&agency=" + agencySelected;
         
-        var launchLibraryResponseObject = httpRequest(upcomingAgencyLaunchURL);
+        var launchLibraryResponseObject = httpRequest(updatedUpcomingLaunchURL);
     
     }
     
     else {
         
-        var launchLibraryResponseObject = httpRequest(upcomingLaunchURL);
+        var launchLibraryResponseObject = httpRequest(updatedUpcomingLaunchURL);
         
     }
     
-    for (var i = 0; i < 15; i++) {
-            fillFilterDetails(launchLibraryResponseObject, i);
-        }
+    //numberSelected++;
+    for (var i = 0; i < 16; i++) {
+        
+        $( "#cardID" + i  ).remove();
+           
+    }
+    
+    launchLibraryResponseObject.launches.forEach(function(launchEntry, launchIndex){
+        buildAndPlaceCards(launchLibraryResponseObject, false, launchEntry, launchIndex);
+    });
 }
+
+
+
 
 //"main"=================================================================================================================================
 
 var today = new Date();
 var todaysDate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate());
 
-var upcomingLaunchURL = "https://launchlibrary.net/1.2/launch?startdate=" + todaysDate + "&limit=16&mode=verbose";
+var upcomingLaunchURL = "https://launchlibrary.net/1.2/launch?startdate=" + todaysDate + "&mode=verbose&limit=16";
 var agencySelected;
+var startDateSelected;
+var numberSelected;
 searchRecentLaunches();
 searchUpcomingLaunches();
 
@@ -338,11 +387,15 @@ else {
     //document.getElementById("podvideo").appendChild(podSource);
 }
 
-$( function() {
-    $( "#datepicker" ).datepicker();
-  } );
 
 
+$("#startdate").datepicker({
+  onSelect: setUpcomingParameters()
+});
+
+$("#enddate").datepicker({
+  onSelect: setUpcomingParameters()
+});
 
 
 
