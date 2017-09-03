@@ -59,8 +59,10 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     cardDiv.id = "cardID" + launchIndex;
     if (isRecent) cardDiv.id += "R";
     cardDiv.style.width = "22rem";
-    if (!isRecent)
-    cardDiv.style.backgroundColor = "#333";
+    if (!isRecent){
+        cardDiv.className = "card card-info mb-3 text-center";
+        //cardDiv.style.backgroundColor = "#5bded7";
+    }
     cardDiv.style.borderRadius = "10px";
     cardDiv.style.boxShadow = "2px 2px 7px #333";
     //cardDiv.style.display = "flex";
@@ -76,6 +78,7 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     launchLocation.className = "card-subtitle mb-2 text-muted";
     launchLocation.style.marginLeft = "10px";
     launchLocation.id = "launchLocation" + launchIndex;
+    launchLocation.style.color = "#eeeeee";
     if (isRecent) launchLocation.id += "R";
     launchDate.className = "card-text";
     launchDate.style.marginLeft = "10px";

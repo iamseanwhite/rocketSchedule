@@ -15,16 +15,23 @@ a::after {
 }
 
 input[type=text], select {
-    width: 90%;
-    height: 1%;
+    
+    width: 80%;
+    
+    height: 3%;
+    /*
     padding: 12px 20px;
+    */
     margin: 8px 0;
+    
     display: inline-block;
+    
     border: 1px solid #ccc;
     border-radius: 4px;
     box-sizing: border-box;
     border-radius: 10px;
     border-style: inset;
+    
 }
 
 .jumbotron {
@@ -32,6 +39,45 @@ input[type=text], select {
     color: dark-grey;
 }
 
+label {
+    font-weight: bold;
+    margin-top: 10px;
+
+}
+
+.sidebar-headings {
+    font-weight: lighter;
+}
+
+.panel-heading {
+    height: 50px;
+    width: 100%;
+    background-color: #aaaaaa;
+    position: relative;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.w3-bar-item {
+    color: #ffffff;
+}
+
+.header-tab {
+    width: 100%;
+    background-color: #eeeeee;
+    position: fixed;
+    top: 0px;
+    z-index: 3;
+    box-shadow: 0px 0px 10px #888888
+}
+
+
+.w3-sidebar {
+    position: static !important;
+}
 /*
 .header {
     font-family: Verdana;
