@@ -7,7 +7,6 @@ function httpRequest(url) {
 }
 
 
-
 //Build Launch Details
 function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
     
@@ -77,8 +76,6 @@ function buildAndPlaceCards(object, isRecent, launchEntry, launchIndex){
 
     launchDate.id = "launchDate" + launchIndex;
     if (isRecent) launchDate.id += "R";
-
-    
     
     
     if (isRecent === true) {
@@ -195,8 +192,6 @@ function searchRecentLaunches() {
     
     var enddate = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+(today.getDate());
     
-    
-    
     if (today.getMonth() === 0) var startDate = (today.getFullYear()-1)+'-'+(12)+'-'+(today.getDate());
     else var startDate = today.getFullYear()+'-'+(today.getMonth())+'-'+(today.getDate());
     
@@ -217,7 +212,6 @@ function searchRecentLaunches() {
 
 
 function searchUpcomingLaunches() {
-
 
     //console.log(launchLibraryResponseObject);
     var launchLibraryResponseObject = httpRequest(upcomingLaunchURL);
