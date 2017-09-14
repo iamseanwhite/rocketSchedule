@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
     <head>
       <link rel="stylesheet" type="text/css" href="style.css">
@@ -15,9 +16,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" 
         integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
         
+        <script src="js/card-builders.js"></script>
     </head>
     
-    <body style="background-color:#ffffff;">
+    <body style = "padding-bottom: 500px;">
       
       
     
@@ -42,7 +44,7 @@
         
         <center>
          
-      <div class="w3-sidebar w3-light-grey w3-card-2" style="width:15%; margin-left: 30px; z-index:3; margin-top: -45px; box-shadow: 0px 0px 10px #888888; border-top-right-radius: 12px; border-top-left-radius: 12px;">
+      <div class="w3-sidebar w3-light-grey w3-card-2" style="width:15%; margin-left: 30px; z-index:3; margin-top: -45px; box-shadow: 0px 0px 10px #555555; border-top-right-radius: 12px; border-top-left-radius: 12px;">
        <div class = "panel-heading"> 
         <h3 class="w3-bar-item">Filter Results</h3>
       </div> 
@@ -58,7 +60,7 @@
           <option value= 5>5</option>
           <option value="6">6</option>
           <option value="7">7</option>
-          <option value="8">8</option>
+          <option value="8" selected="selected">8</option>
           <option value="9">9</option>
           <option value="10">10</option>
           <option value="11">11</option>
@@ -66,17 +68,20 @@
           <option value="13">13</option>
           <option value="14">14</option>
           <option value="15">15</option>
-          <option value="16" selected="selected">16</option>
+          <option value="16">16</option>
         </select>
         <br>
         <label>Agency</label>
         <br>
         <select id = "recentagency" onchange = "setRecentParameters()">
           <option value="all">All</option>
-          <option value="spx">SpaceX</option>
+          <option value="asa">Arianespace</option>
+          <option value="ILS">International Launch Services</option>
           <option value="nasa">NASA</option>
-          <option value="AEM">Mexican Space Agency</option>
-          <option value="audi">Other</option>
+          <option value="CCCP">Soviet Space Program</option>
+          <option value="spx">SpaceX</option>
+          <option value="ula">United Launch Alliance</option>
+          
         </select>
         
         <br>
@@ -120,10 +125,13 @@
         <br>
         <select id = "agency" onchange = "setUpcomingParameters()">
           <option value="all">All</option>
-          <option value="spx">SpaceX</option>
+          <option value="asa">Arianespace</option>
+          <option value="ILS">International Launch Services</option>
           <option value="nasa">NASA</option>
-          <option value="AEM">Mexican Space Agency</option>
-          <option value="audi">Other</option>
+          <option value="CCCP">Soviet Space Program</option>
+          <option value="spx">SpaceX</option>
+          <option value="ula">United Launch Alliance</option>
+          
         </select>
         
         <br>
@@ -145,7 +153,7 @@
          
           <div id = "recentLaunches">
             <h3 id = "recentlaunchHeader" style = "margin-top: 145px; margin-bottom: 35px; margin-left: 50px ">Recent Launches</h3>
-        
+              
         
         
     
@@ -181,17 +189,17 @@
         
         
        </div>
-       
+    
        <center>
        
-      <h4 id = "podheader" style = "margin-top: 100px;">NASA Picture Of The Day</h4>
+      <h4 id = "podheader" style = "margin-top: 100px;">NASA Image Of The Day</h4>
       <div class="middle">
         <div id = "nasapod">
         <!--  <img src="" id="podimg" alt="Mountain View" align="middle" style="height:600px;" > -->
         
       </div>
       
-        <h5 id = "podtitle" style = "text-align: center; margin: 10px;">testing</h5>
+        <h5 id = "podtitle" style = "text-align: center; margin: 10px;"></h5>
       
       <div id="description" style = "margin-top: 30px; margin-left: 380px; margin-right: 380px; margin-bottom: 40px;"></div>
         <!--     
@@ -212,5 +220,5 @@
   </center>
     </div>
     </body>
-    <script src="script.js"></script>
+    <script src="js/main.js"></script>
 </html>
