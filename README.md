@@ -1,3 +1,3 @@
 # Rocket Schedule
 
-https://iamseanwhite.github.io/rocketSchedule/
+An app powered by Launch Library that allows the user to view and search recent and upcoming rocket launches
